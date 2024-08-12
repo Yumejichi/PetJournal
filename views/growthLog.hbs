@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-    <link rel="stylesheet" type="text/css" href="/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="/styles/newPost.css">
 </head>
 <body>
     <div id="divMain">
@@ -12,12 +12,12 @@
         <ul>
             {{#each pet.growthLog}}
             <li>
-                Date: {{this.measureDate}} <br />
-                Weight: {{this.weight}} lbs<br />
-                Height: {{this.height}} ft<br />
-                Note: {{this.note}}<br />
+                <strong>Date:</strong> {{this.measureDate}} <br />
+                <strong>Weight:</strong> {{this.weight}} lbs<br />
+                <strong>Height:</strong> {{this.height}} ft<br />
+                <strong>Note:</strong> {{this.note}}<br />
                 <form action="/pets/{{../pet._id}}/growthLog/{{this._id}}/delete" method="post" style="display:inline;">
-                    <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Delete</button>
+                    <button type="submit">Delete</button>
                 </form>
             </li>
             {{/each}}
@@ -25,17 +25,26 @@
 
         <h3>Add New Growth Log</h3>
         <form action="/pets/{{pet._id}}/growthLog/add" method="post">
-            <label for="weight">Weight (lbs):</label>
-            <input type="number" id="weight" name="weight" step="0.01" required><br />
+            <div>
+                <label for="weight">Weight (lbs):</label>
+                <input type="number" id="weight" name="weight" step="0.01" required>
+            </div>
             
-            <label for="height">Height (ft):</label>
-            <input type="number" id="height" name="height" step="0.01" required><br />
+            <div>
+                <label for="height">Height (ft):</label>
+                <input type="number" id="height" name="height" step="0.01" required>
+            </div>
 
-            <label for="note">Note:</label>
-            <textarea id="note" name="note"></textarea><br />
+            <div>
+                <label for="note">Note:</label>
+                <textarea id="note" name="note"></textarea>
+            </div>
             
-            <label for="measureDate">Measurement Date:</label>
-            <input type="date" id="measureDate" name="measureDate" required>
+            <div>
+                <label for="measureDate">Measurement Date:</label>
+                <input type="date" id="measureDate" name="measureDate" required>
+            </div>
+
             <button type="submit">Add Growth Log</button>
         </form>
 

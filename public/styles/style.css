@@ -66,12 +66,16 @@ nav#topNavigation .nav-item:hover {
 
 nav#sideNavigation {
     grid-area: nav;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 
 nav#sideNavigation ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 nav#sideNavigation .nav-item {
@@ -81,11 +85,19 @@ nav#sideNavigation .nav-item {
 nav#sideNavigation .nav-link {
     text-decoration: none;
     color: #000;
+    font-weight: bold;
+    padding: 15px 20px;
+    display: block;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 nav#sideNavigation .nav-link:hover {
-    text-decoration: underline;
+    background-color: #ddd;
 }
+
 
 /* Set iframe element to 100% for height and width */
 iframe {
