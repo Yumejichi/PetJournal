@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+<body>
+    <div id="divMain">
+        {{> header}} <!-- Include the header partial -->
+
+
+        <div style="display: flex; flex-direction: row;">
+            <nav id="sideNavigation" style="flex: 0 0 200px;">
+                <ul>
+                    <li class="nav-item"><a class="nav-link" href="/home" target="contentPart">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/profile" target="contentPart">My Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/newPost" target="contentPart">New Post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/events" target="contentPart">Events</a></li>
+                </ul>
+            </nav>
+
+            <article id="contents" style="flex: 1;">
+                {{{body}}}
+            </article>
+        </div>
+
+        
+        {{> footer}} <!-- Include the footer partial -->
+    </div>
+</body>
+</html>

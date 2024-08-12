@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/styles/home.css">
+    <script src="/scripts/searchCategory.js"></script>
+
+</head>
+<body>
+    <div id="divMain">
+        <div class="search-container">
+            <div class="search-category">
+                <label for="category">Search By Category:</label>
+                <select id="category" name="category" required>
+                    <option value="all" selected>All categories</option>
+                    <option value="cats">Cats</option>
+                    <option value="dogs">Dogs</option>
+                    <option value="other">Other Pets</option>
+                </select>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search posts...">
+                <button id="searchButton">Search</button>
+            </div>
+        </div>
+
+        <!-- Section for All Posts -->
+        <h2>All Posts</h2>
+        <div id="featured">
+            <div class="photo-grid">
+                {{#each posts}}
+                    <div class="post">
+                        {{#if imageUrl}}
+                            <img src="{{imageUrl}}" alt="Post Image">
+                        {{/if}}
+                        <div class="post-body">
+                            <h3 class="post-title">{{title}}</h3>
+                            <p class="post-text">{{message}}</p>
+                            <p class="date">{{date}}</p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

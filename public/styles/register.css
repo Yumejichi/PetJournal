@@ -1,0 +1,21 @@
+/*create style sheet here */
+
+
+body {
+	font-family: sans-serif;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+	background: lightgray;
+	width: 90%;
+	padding: 20px;
+	margin: 5px;
+	border: None;
+}
+
+#register {
+    cursor: pointer; /* Changes the cursor to a hand symbol when hovering over the button */
+    background: lightgreen;
+    width: 100%;
+    padding: 20px;
+}

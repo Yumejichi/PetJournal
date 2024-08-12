@@ -1,0 +1,37 @@
+{{! views/edit_pet.hbs }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+<body>
+    <h1>Edit Pet: {{pet.name}}</h1>
+    
+    <form action="/pet/{{pet._id}}/edit" method="post" enctype="multipart/form-data">
+        <label for="name"><b>Pet Name</b></label><br />
+        <input type="text" id="name" name="name" value="{{pet.name}}" required>
+        <br /><br />
+        <label for="category"><b>Pet Category</b></label><br />
+        <select id="category" name="category" required>
+            <option value="dogs">Dogs</option>
+            <option value="cats">Cats</option>
+            <option value="other">Other Pets</option>
+        </select>
+        <br /><br />
+
+        <label for="profilePhoto"><b>Upload New Profile Photo</b> (optional)</label>
+        <br />
+        <small class="file-warning">Please use JPG or PNG files only. Large images may not be supported.</small>
+        <br />
+        <input type="file" id="profilePhoto" name="profilePhoto">
+        <br /><br />
+
+        <button type="submit">Update Pet</button>
+    </form>
+
+    <a href="/profile">Cancel</a>
+</body>
+</html>

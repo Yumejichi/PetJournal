@@ -1,0 +1,133 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background.jpg'); /* Add the path to your background image here */
+    background-size: contain; /* Ensure the entire image fits within the viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    background-color: #f4f4f4;
+}
+
+#divMain {
+    display: grid;
+    height: 100vh; /* Ensure the div covers the full viewport height */
+    /* Use CSS grid technology (grid-template-areas) to create a 3 column and 3 row configuration: */
+    grid-template-areas: 
+        "header header header"
+        "nav content content"
+        "footer footer footer";
+    /* Use grid-template-rows to set top and bottom rows to a fixed height in pixels, middle row use 1fr */
+    grid-template-rows: 100px 1fr 100px;
+    /* Use grid-template-columns to set left and right columns to a relative width in percent, middle column use 1fr */
+    grid-template-columns: 10% 1fr 20%;
+    column-gap: 10px;
+    row-gap: 10px;
+    margin: 0px;
+}
+
+header, article, nav, footer {
+    padding: 1.2em;
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency to see the background image */
+}
+
+header {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px; /* Set a fixed height for the image */
+    width: auto; /* Maintain the aspect ratio */
+}
+
+img {
+    width: 100px;
+    height: 100px; /* Set a fixed height for the image */
+}
+
+nav#topNavigation {
+    display: flex;
+    gap: 15px;
+}
+
+nav#topNavigation .nav-item {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+nav#topNavigation .nav-item:hover {
+    text-decoration: underline;
+}
+
+nav#sideNavigation {
+    grid-area: nav;
+}
+
+
+nav#sideNavigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav#sideNavigation .nav-item {
+    margin: 10px 0;
+}
+
+nav#sideNavigation .nav-link {
+    text-decoration: none;
+    color: #000;
+}
+
+nav#sideNavigation .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Set iframe element to 100% for height and width */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove default border */
+}
+
+/* Assign grid names to corresponding grid-area property */
+#header {
+    grid-area: header;
+}
+#contents {
+    grid-area: content;
+    width: 100c
+}
+#sideNavigation {
+    grid-area: nav;
+}
+#side {
+    grid-area: ads;
+}
+footer {
+    text-align: center;
+    background-color: rgba(0, 150, 136, 0.8);
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    z-index: 1000;
+}
+
+footer {
+    text-align: center;
+    background-color: rgba(0, 150, 136, 0.8);
+    color: white;
+    padding: 10px 0;
+}
+
+.file-warning {
+    color: #666;
+    font-style: italic;
+}

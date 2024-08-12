@@ -1,0 +1,38 @@
+{{! views/newPost.hbs }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+<body>
+    <h1>Create a New Post</h1>
+
+    <form action="/newPost" method="post" enctype="multipart/form-data">
+        <label for="pet"><b>Select Pet</b></label><br />
+        <select id="pet" name="petId" required>
+            {{#each pets}}
+                <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <br /><br />
+        
+        <label for="title"><b>Title</b></label><br />
+        <input type="text" id="title" name="title" placeholder="Enter Title" required>
+        <br /><br />
+
+        <label for="message"><b>Message</b></label><br />
+        <textarea id="message" name="message" placeholder="Enter Message" required></textarea>
+        <br /><br />
+
+        <label for="image"><b>Upload Image</b></label><br />
+        <input type="file" id="image" name="image">
+        <br /><br />
+
+        <button type="submit">Create Post</button>
+    </form>
+
+</body>
+</html>

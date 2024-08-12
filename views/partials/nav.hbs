@@ -1,0 +1,10 @@
+{{!-- views/partials/nav.hbs --}}
+<nav id="topNavigation">
+    {{#if user}}
+        <span>Welcome, {{user.username}}</span>
+        <a href="/logout" class="nav-item">Logout</a>
+    {{else}}
+        <a href="/login" class="nav-item">Login</a>
+        <a href="/register" class="nav-item">New User</a>
+    {{/if}}
+</nav>

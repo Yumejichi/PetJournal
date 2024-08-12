@@ -1,0 +1,90 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; 
+    width: 100%
+}
+
+h1 {
+    text-align: center;
+    color: #009688;
+}
+
+h2 {
+    margin-top: 40px;
+    color: #060079;
+}
+
+.event-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto; /* Center the event list */
+    max-width: 600px; /* Limit the width of the list */
+}
+
+.event-item {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-item h3 {
+    margin: 0 0 10px;
+    color: #009641;
+}
+
+form {
+    margin-bottom: 30px;
+    max-width: 600px; /* Limit the width of the form */
+    margin: 0 auto; /* Center the form */
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="date"],
+form select {
+    width: 100%; /* Use full width of the form */
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form textarea {
+    width: 100%; /* Use full width of the form */
+    height: 130px;
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #009688;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block; /* Make the button full-width */
+    margin: 0 auto; /* Center the button */
+}
+
+form button:hover {
+    background-color: #00796b;
+}
+
+a {
+    color: #009688;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
