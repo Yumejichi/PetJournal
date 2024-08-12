@@ -11,47 +11,54 @@
     <div id="divMain">
         <h1>Events</h1>
 
-        {{#each eventsByPet}}
-            <h2>{{petName}}'s Events</h2>
-            <ul class="event-list">
-            {{#each events}}
-                <li class="event-item">
-                    <h3>{{this.title}}</h3>
-                    <p>{{this.description}}</p>
-                    <p><strong>Date:</strong> {{this.eventDate}}</p>
-                    <form>
-                        <button type="button" class="delete-event-button" data-event-id="{{this._id}}">Delete Event</button>
-                    </form>
-                </li>
-            {{/each}}
-            </ul><br /><hr />
-        {{/each}}     
-        <br />
-        
-        <h3>Add a New Event</h3>
-        <form action="/events" method="post">
-            <div class="form-group">
-                <label for="petId">Select Pet:</label>
-                <select id="petId" name="petId" required>
-                    {{#each pets}}
-                        <option value="{{this._id}}">{{this.name}}</option>
+        <div id="events-container">
+            {{#each eventsByPet}}
+                <div class="event-column">
+                    <h2>{{petName}}'s Events</h2>
+                    <ul class="event-list">
+                    {{#each events}}
+                        <li class="event-item">
+                            <h3>{{this.title}}</h3>
+                            <p>{{this.description}}</p>
+                            <p><strong>Date:</strong> {{this.eventDate}}</p>
+                            <form>
+                                <button type="button" class="delete-event-button" data-event-id="{{this._id}}">Delete Event</button>
+                            </form>
+                        </li>
                     {{/each}}
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="title">Event Title:</label>
-                <input type="text" id="title" name="title" placeholder="Enter Event Title" required>
-            </div>
-            <div class="form-group">
-                <label for="description">Event Description:</label><br />
-                <textarea id="description" name="description" placeholder="Enter Event Description" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="eventDate">Event Date:</label>
-                <input type="date" id="eventDate" name="eventDate" required>
-            </div>
-            <button type="submit">Add Event</button>
-        </form>
+                    </ul>
+                </div>
+            {{/each}}
+        </div>
+
+        <br /><hr />
+        
+        <div id="add-pet-container">
+            <h3>Add a New Event</h3>
+            <form action="/events" method="post">
+                <div class="form-group">
+                    <label for="petId">Select Pet:</label>
+                    <select id="petId" name="petId" required>
+                        {{#each pets}}
+                            <option value="{{this._id}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="title">Event Title:</label>
+                    <input type="text" id="title" name="title" placeholder="Enter Event Title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Event Description:</label><br />
+                    <textarea id="description" name="description" placeholder="Enter Event Description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Event Date:</label>
+                    <input type="date" id="eventDate" name="eventDate" required>
+                </div>
+                <button type="submit">Add Event</button>
+            </form>
+        </div>
 
         <br />
         <a href="/profile">Back to Profile</a>

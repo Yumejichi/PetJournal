@@ -3,8 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9; 
-    width: 100%
+    width: 100%;
 }
+
 #divMain {
     width: 98%;
     margin: 0 auto;
@@ -15,21 +16,31 @@ body {
     flex-direction: column;
     overflow-y: auto; /* Enable scrolling for the entire content */
 }
+
 h1 {
-    text-align: center;
+    text-align: left;
     color: #009688;
 }
 
-h2 {
-    margin-top: 40px;
-    color: #060079;
+#events-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.event-column {
+    width: 48%;
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .event-list {
     list-style-type: none;
     padding: 0;
-    margin: 0 auto; /* Center the event list */
-    max-width: 600px; /* Limit the width of the list */
+    margin: 0; /* Align events to the top */
 }
 
 .event-item {
@@ -45,10 +56,31 @@ h2 {
     color: #009641;
 }
 
-form {
-    margin-bottom: 30px;
-    max-width: 600px; /* Limit the width of the form */
-    margin: 0 auto; /* Center the form */
+#add-pet-container {
+    margin-top: 40px;
+    text-align: left;
+    width: 50%
+}
+
+#add-pet-form {
+    display: none; /* Hide the form initially */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#add-pet-button {
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+#add-pet-button:hover {
+    background-color: #005f56;
 }
 
 form label {
@@ -58,7 +90,7 @@ form label {
 form input[type="text"],
 form input[type="date"],
 form select {
-    width: 100%; /* Use full width of the form */
+    width: 100%;
     padding: 10px;
     margin: 5px 0 20px;
     border: 1px solid #ccc;
@@ -66,7 +98,7 @@ form select {
 }
 
 form textarea {
-    width: 100%; /* Use full width of the form */
+    width: 100%;
     height: 130px;
     padding: 10px;
     margin: 5px 0 20px;
@@ -81,8 +113,8 @@ form button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    display: block; /* Make the button full-width */
-    margin: 0 auto; /* Center the button */
+    display: block;
+    margin: 0 auto;
 }
 
 form button:hover {
