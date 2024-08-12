@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User"); // Ensure this path is correct and the User model exists
 const multer = require("multer");
-const path = require("path");
 const Post = require("../models/Post"); // Assuming you have a Post model
 const Pet = require("../models/Pet"); // Ensure this path is correct
 const Event = require("../models/Event"); // Adjust the path as needed
@@ -344,7 +343,6 @@ router.get("/pets/:petId/posts", ensureAuthenticated, async (req, res) => {
   }
 });
 
-// routes/index.js
 router.delete("/pets/:petId/delete", ensureAuthenticated, async (req, res) => {
   try {
     const petId = req.params.petId;
@@ -472,7 +470,6 @@ router.post(
 );
 
 // Route to display the events page
-// Route to display the events page
 router.get("/events", ensureAuthenticated, async (req, res) => {
   try {
     // Fetch all pets owned by the user
@@ -507,6 +504,35 @@ router.get("/events", ensureAuthenticated, async (req, res) => {
       title: "Error",
       message:
         "There was an issue fetching your events. Please try again later.",
+    });
+  }
+});
+
+// Route to handle adding a new event
+router.post("/events", ensureAuthenticated, async (req, res) => {
+  try {
+    const { petId, title, description, eventDate } = req.body;
+    const userId = req.session.user._id;
+
+    // Create a new event with the provided data
+    const newEvent = new Event({
+      petId,
+      title,
+      description,
+      eventDate,
+      ownerId: userId,
+    });
+
+    await newEvent.save();
+
+    // Redirect back to the events page after successfully creating the event
+    res.redirect("/events");
+  } catch (error) {
+    console.error("Error creating event:", error);
+    res.status(500).render("error_page", {
+      title: "Error",
+      message:
+        "There was an issue creating your event. Please try again later.",
     });
   }
 });
