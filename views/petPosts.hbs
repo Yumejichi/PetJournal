@@ -4,36 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="/styles/common.css">
     <script src="/scripts/deletePost.js" defer></script> <!-- Link to the delete script -->
 </head>
 <body>
-    <h1>Posts for {{pet.name}}</h1>
+    <div id="divMain">
+        <h1>Posts for {{pet.name}}</h1>
 
-    {{#if posts.length}}
-    <ul>
-        {{#each posts}}
-        <li>
-            <h2>{{this.title}}</h2>
-            <p><b>Date:</b> {{this.date}}</p>
-            <p><b>Message:</b> {{this.message}}</p>
-            {{#if this.image.length}}
-                <p><b>Images:</b></p>
-                {{#each this.image}}
-                    <img src="data:image/jpeg;base64,{{{this}}}" alt="{{../title}}" width="200">
-                {{/each}}
-            {{else}}
-                <p><b>Image:</b> No image available</p>
-            {{/if}}
-            <button class="delete-post" data-post-id="{{this._id}}">Delete Post</button> <!-- Delete Button -->
-        </li>
-        <hr>
-        {{/each}}
-    </ul>
-    {{else}}
-    <p>No posts available for this pet.</p>
-    {{/if}}
+        {{#if posts.length}}
+        <ul>
+            {{#each posts}}
+            <li>
+                <h2>{{this.title}}</h2>
+                <p><b>Date:</b> {{this.date}}</p>
+                <p><b>Message:</b> {{this.message}}</p>
+                {{#if this.image.length}}
+                    <p><b>Images:</b></p>
+                    {{#each this.image}}
+                        <img src="data:image/jpeg;base64,{{{this}}}" alt="{{../title}}" width="200">
+                    {{/each}}
+                {{else}}
+                    <p><b>Image:</b> No image available</p>
+                {{/if}}
+                <button class="delete-post" data-post-id="{{this._id}}">Delete Post</button> <!-- Delete Button -->
+            </li>
+            <hr>
+            {{/each}}
+        </ul>
+        {{else}}
+        <p>No posts available for this pet.</p>
+        {{/if}}
 
-    <a href="/profile">Back to Profile</a>
+        <a href="/profile">Back to Profile</a>
+    </div>
 </body>
 </html>

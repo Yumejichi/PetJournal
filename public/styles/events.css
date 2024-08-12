@@ -5,7 +5,16 @@ body {
     background-color: #f9f9f9; 
     width: 100%
 }
-
+#divMain {
+    width: 98%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 80px); /* Subtract footer height */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Enable scrolling for the entire content */
+}
 h1 {
     text-align: center;
     color: #009688;

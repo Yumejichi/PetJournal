@@ -6,51 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <link rel="stylesheet" type="text/css" href="/styles/profile.css">
+    <script src="/scripts/deletePet.js"></script>
 </head>
 <body>
-    <h1>My Profile</h1>
-    
-    <h2>Your Pets</h2>
-    <ul class="pet-list">
-        {{#each pets}}
-        <li class="pet_item">
-            <h3 class="pet-name">{{this.name}}</h3>
-            <img src="{{this.profilePhoto}}" alt="{{this.name}}'s Profile Photo" />
-            <div class="pet-body">
-                <div class="pet-details">
-                    <a href="/pets/{{this._id}}/growthLog">View Growth Log</a> | 
-                    <a href="/pets/{{this._id}}/posts">View Posts</a> | 
-                    <a href="/pets/{{this._id}}/edit">Edit</a> |
-                    <button class="delete-pet" data-pet-id="{{this._id}}">Delete</button>
+    <div id="divMain">
+        <h1>My Profile</h1>
+        
+        <h2>Your Pets</h2>
+        <ul class="pet-list">
+            {{#each pets}}
+            <li class="pet_item">
+                <h3 class="pet-name">{{this.name}}</h3>
+                <img src="{{this.profilePhoto}}" alt="{{this.name}}'s Profile Photo" />
+                <div class="pet-body">
+                    <div class="pet-details">
+                        <a href="/pets/{{this._id}}/growthLog">View Growth Log</a> | 
+                        <a href="/pets/{{this._id}}/posts">View Posts</a> | 
+                        <a href="/pets/{{this._id}}/edit">Edit</a> |
+                        <button class="delete-pet" data-pet-id="{{this._id}}">Delete</button>
+                    </div>
                 </div>
-            </div>
-        </li>
-        {{/each}}
-    </ul>
+            </li>
+            {{/each}}
+        </ul>
 
-    <h2>Add a New Pet</h2>
-    <form action="/addPet" method="post" enctype="multipart/form-data" class="profile-actions">
-        <label for="name"><b>Pet Name</b></label><br />
-        <input type="text" id="name" name="name" required>
-        <br /><br />
+        <h2>Add a New Pet</h2>
+        <form action="/addPet" method="post" enctype="multipart/form-data" class="profile-actions">
+            <label for="name"><b>Pet Name</b></label><br />
+            <input type="text" id="name" name="name" required>
+            <br /><br />
 
-        <label for="profilePhoto"><b>Upload Profile Photo</b></label><br />
-        <input type="file" id="profilePhoto" name="profilePhoto">
-        <br />
-        <small class="file-warning">(Please use JPG or PNG files only. Large images may not be supported.)</small>
-        <br /><br />
+            <label for="profilePhoto"><b>Upload Profile Photo</b></label><br />
+            <input type="file" id="profilePhoto" name="profilePhoto">
+            <br />
+            <small class="file-warning">(Please use JPG or PNG files only. Large images may not be supported.)</small>
+            <br /><br />
 
-        <label for="category"><b>Pet Category</b></label><br />
-        <select id="category" name="category" required>
-            <option value="dogs">Dogs</option>
-            <option value="cats">Cats</option>
-            <option value="other">Other Pets</option>
-        </select>
-        <br /><br />
+            <label for="category"><b>Pet Category</b></label><br />
+            <select id="category" name="category" required>
+                <option value="dogs">Dogs</option>
+                <option value="cats">Cats</option>
+                <option value="other">Other Pets</option>
+            </select>
+            <br /><br />
 
-        <button type="submit">Add Pet </button>
-    </form>
+            <button type="submit">Add Pet </button>
+        </form>
 
-    <script src="/scripts/deletePet.js"></script>
+    </div>
 </body>
 </html>
