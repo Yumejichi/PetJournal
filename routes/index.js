@@ -354,15 +354,27 @@ router.delete("/pets/:petId/delete", ensureAuthenticated, async (req, res) => {
       return res.status(404).json({ error: "Pet not found" });
     }
 
-    // Optionally, you can also delete related posts and other data associated with the pet
-    await Post.deleteMany({ petId: petId });
+    // Delete related posts
+    await Post.deleteMany({ petId });
 
-    res.status(200).json({ message: "Pet deleted successfully" });
+    // Delete related events
+    await Event.deleteMany({ petId });
+
+    // Assuming growth logs are stored in the Pet model's growthLog array
+    // Growth logs are part of the Pet model, so they are deleted automatically with the pet
+
+    // Respond with success message
+    res
+      .status(200)
+      .json({ message: "Pet and all related data deleted successfully" });
   } catch (error) {
-    console.error("Error deleting pet:", error);
+    console.error("Error deleting pet and related data:", error);
     res
       .status(500)
-      .json({ error: "An error occurred while trying to delete the pet" });
+      .json({
+        error:
+          "An error occurred while trying to delete the pet and related data",
+      });
   }
 });
 
@@ -541,6 +553,7 @@ router.post("/events", ensureAuthenticated, async (req, res) => {
 router.delete("/events/:eventId", ensureAuthenticated, async (req, res) => {
   try {
     const eventId = req.params.eventId;
+
     const deletedEvent = await Event.findByIdAndDelete(eventId);
 
     if (!deletedEvent) {
@@ -553,6 +566,26 @@ router.delete("/events/:eventId", ensureAuthenticated, async (req, res) => {
     res
       .status(500)
       .json({ error: "An error occurred while trying to delete the event" });
+  }
+});
+
+// Route to handle deleting an event
+router.delete("/posts/:postId", ensureAuthenticated, async (req, res) => {
+  try {
+    const postId = req.params.postId;
+
+    const deletedPost = await Post.findByIdAndDelete(postId);
+
+    if (!deletedPost) {
+      return res.status(404).json({ error: "Post not found" });
+    }
+
+    res.status(200).json({ message: "Post deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting post:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while trying to delete the post" });
   }
 });
 

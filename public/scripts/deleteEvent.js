@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const deleteButtons = document.querySelectorAll(".delete-event");
+  const deleteButtons = document.querySelectorAll(".delete-event-button");
 
   deleteButtons.forEach((button) => {
     button.addEventListener("click", async (event) => {

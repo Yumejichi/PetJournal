@@ -1,33 +1,26 @@
-// public/scripts/deletePost.js
-document.addEventListener("DOMContentLoaded", () => {
-  const deleteButtons = document.querySelectorAll(".delete-post");
+document.querySelectorAll(".delete-post").forEach((button) => {
+  button.addEventListener("click", function () {
+    const postId = this.getAttribute("data-post-id");
 
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", async (event) => {
-      const postId = event.target.dataset.postId;
-
-      const confirmed = confirm("Are you sure you want to delete this post?");
-
-      if (confirmed) {
-        try {
-          const response = await fetch(`/posts/${postId}`, {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-
-          if (response.ok) {
-            alert("Post deleted successfully!");
-            window.location.reload();
+    if (
+      confirm(
+        "Are you sure you want to delete this post? This action cannot be undone."
+      )
+    ) {
+      fetch(`/posts/${postId}`, { method: "DELETE" })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.message) {
+            alert(data.message);
+            location.reload(); // Reload the page to update the post list
           } else {
-            alert("Failed to delete the post. Please try again.");
+            alert("Failed to delete the post.");
           }
-        } catch (error) {
+        })
+        .catch((error) => {
           console.error("Error:", error);
-          alert("An error occurred while trying to delete the post.");
-        }
-      }
-    });
+          alert("An error occurred. Please try again.");
+        });
+    }
   });
 });
