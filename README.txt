@@ -1,5 +1,5 @@
 Project Description:
-This assignment let me get familiar with how to use the Jquery mainly to change the UI and other functions.
+This is a website that people can post photos of their pets!
 
 Challenges Faced:
 - About uploading images, I referred to : https://www.geeksforgeeks.org/upload-and-retrieve-image-on-mongodb-using-mongoose/
@@ -13,4 +13,3 @@ Challenges Faced:
 - Use lean() in Mongoose Query:
 The easiest and most recommended way to handle this is to convert the Mongoose documents to plain JavaScript objects by using the lean() method in your Mongoose query. This strips away the Mongoose document methods and makes them plain objects, which Handlebars can easily work with.
 
-- The favourite posts function: I gave up to add this function since it was hard to figure out the problem in limited time. I successfully added favourite buttons in the home.hbs page but seems didn't work well whcn click it. I am thinking continue thinking about how to let it work after this course.
